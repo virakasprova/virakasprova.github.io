@@ -6,7 +6,7 @@ permalink: /publication/2026-07-14-sycophancy-survey
 excerpt: 'A survey of 126 papers arguing that sycophancy is not one behavior but a family of compliance behaviors whose form depends on how the interaction is structured, and that evaluation is concentrated in single-turn settings even as deployment moves elsewhere.'
 date: 2026-07-14
 venue: 'Zenodo preprint (under review, ACM Computing Surveys)'
-paperurl: '/files/kasprova-2026-sycophancy-survey.pdf'
+paperurl: '/files/Sycophancy_Survey_Final.pdf'
 citation: 'Vira Kasprova, Jingrui He, Dilek Hakkani-Tür, and Volodymyr Kindratenko (2026). &quot;Sycophancy in Language Models: A Survey Across Behaviors and Topologies.&quot; <i>Zenodo</i>. https://doi.org/10.5281/zenodo.21347166'
 ---
 
