@@ -1,0 +1,8 @@
+{% include base_path %}
+{% assign selected = site.publications | where_exp: "p", "p.selected" | sort: "selected" %}
+<div class="selected-papers">
+  {% for post in selected %}
+    {% include publication.html pub=post style="compact" %}
+  {% endfor %}
+</div>
+<p class="more-link"><a href="{{ base_path }}/publications/">All publications, with figures and BibTeX &rarr;</a></p>

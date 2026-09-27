@@ -3,15 +3,41 @@ title: "Too Polite to Disagree: Understanding Sycophancy Propagation in Multi-Ag
 collection: publications
 category: conferences
 permalink: /publication/2026-04-01-too-polite-to-disagree
-excerpt: 'A 5-agent, 5-round debate setup for studying how incorrect agreement spreads between models. We introduce the Base and Dynamic Sycophancy Scores (BSS/DSS) and find asymmetric influence: smaller models flip toward wrong answers 40% more often than larger ones.'
 date: 2026-04-01
-venue: 'SIGDIAL 2026'
-paperurl: 'https://arxiv.org/abs/2604.02668'
-citation: 'V. Kasprova, A. Parulekar, A. AlRabah, K. Agaram, R. Garg, S. Jha, et al. (2026). &quot;Too Polite to Disagree: Understanding Sycophancy Propagation in Multi-Agent Systems.&quot; <i>SIGDIAL 2026</i>.'
+selected: 2  # position on the home page; remove to leave it off
+status: peer-reviewed
+authors:
+  - "Vira Kasprova*"
+  - "Amruta Parulekar*"
+  - "Abdulrahman AlRabah*"
+  - "Krishna Agaram*"
+  - "Ritwik Garg"
+  - "Sagar Jha"
+  - "Nimet Beyza Bozdag"
+  - "Dilek Hakkani-Tür"
+author_note: "* equal contribution"
+venue: "Proceedings of the 27th Annual Meeting of the Special Interest Group on Discourse and Dialogue (SIGDIAL 2026)"
+venue_short: "SIGDIAL 2026"
+excerpt: "Telling agents how sycophantic their peers are curbs error cascades in multi-agent discussion and raises final accuracy by 10.5 points."
+paper: "https://arxiv.org/abs/2604.02668"
+code: "https://github.com/mathismusic/multiagent-discussion-sycophancy"
+header:
+  teaser: "teasers/too-polite-debate.png"
+teaser_alt: "Discussion pipeline: base sycophancy scores computed per model, then six agents debate over five rounds and a majority vote picks the final answer."
+bibtex: |
+  @inproceedings{kasprova2026polite,
+    title     = {Too Polite to Disagree: Understanding Sycophancy Propagation in Multi-Agent Systems},
+    author    = {Kasprova, Vira and Parulekar, Amruta and AlRabah, Abdulrahman and Agaram, Krishna and Garg, Ritwik and Jha, Sagar and Bozdag, Nimet Beyza and Hakkani-T{\"u}r, Dilek},
+    booktitle = {Proceedings of the 27th Annual Meeting of the Special Interest Group on Discourse and Dialogue},
+    pages     = {795--814},
+    year      = {2026},
+    publisher = {Association for Computational Linguistics},
+    url       = {https://aclanthology.org/2026.sigdial-1.56}
+  }
 ---
 
-Sycophancy is usually measured on a single model answering a single user. But once models talk to each other, agreement becomes contagious: one agent's incorrect concession can pull an entire debate toward the wrong answer.
+Sycophancy is usually measured on a single model answering a single user. But once models talk to each other, agreement becomes contagious: one agent's incorrect concession can pull an entire discussion toward the wrong answer.
 
-We study this with a 5-agent debate system run over 5 rounds, evaluating 6 models under 4 distinct sycophancy pressures. To quantify susceptibility we introduce two metrics — the **Base Sycophancy Score (BSS)**, which captures a model's baseline tendency to concede, and the **Dynamic Sycophancy Score (DSS)**, which tracks how that tendency evolves as a debate progresses.
+We run controlled experiments with six open-source LLMs discussing questions over five rounds. Before and during the discussion, each agent receives a ranking of its peers' tendency toward sycophancy, estimated with static (pre-discussion) and dynamic (online) scoring strategies, including the **Base Sycophancy Score (BSS)** and the **Dynamic Sycophancy Score (DSS)**.
 
-Two findings stand out. BSS-based intervention reduced sycophancy rates by 9% in larger models while maintaining or improving accuracy. And influence within a debate is markedly asymmetric: smaller models exhibited 40% higher flip rates toward incorrect answers, meaning error propagates more readily down the capability gradient than correction propagates up it.
+Providing these sycophancy priors reduces the influence of sycophancy-prone peers, mitigates error cascades, and improves final discussion accuracy by an absolute **10.5%**. It is a lightweight way to reduce sycophancy in discussion without modifying the models.

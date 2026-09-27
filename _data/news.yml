@@ -1,0 +1,26 @@
+# News items for the home page, newest first. `date` is YYYY-MM-DD (only month and year are shown).
+# `text` is Markdown. Keep it to one line each; the home page shows the first 8.
+
+- date: 2026-09-01
+  text: "[AgentAbstain](/publication/2026-07-01-agentabstain) accepted to the NeurIPS 2026 Evaluations and Datasets Track as an **oral**."
+
+- date: 2026-08-24
+  text: "Teaching assistant for [CS 440: Artificial Intelligence](https://courses.grainger.illinois.edu/cs440/fa2026/) at UIUC."
+
+- date: 2026-07-14
+  text: "Released our [survey on sycophancy](/publication/2026-07-14-sycophancy-survey) across behaviors and topologies, now under review at ACM Computing Surveys."
+
+- date: 2026-07-01
+  text: "[Too Polite to Disagree](/publication/2026-04-01-too-polite-to-disagree) accepted to SIGDIAL 2026."
+
+- date: 2026-06-15
+  text: "Started the [XLab](https://xrisk.uchicago.edu/) Summer Research Fellowship in AI safety at the University of Chicago."
+
+# - date: 2026-MM-DD
+#   text: "Presented a poster on ... at ASKS."
+
+- date: 2026-04-03
+  text: "Preprint of [Too Polite to Disagree](https://arxiv.org/abs/2604.02668) on arXiv."
+
+- date: 2025-08-25
+  text: "Started my PhD in Computer Science at UIUC, advised by [Varun Chandrasekaran](https://chandrasekaran-group.github.io/)."

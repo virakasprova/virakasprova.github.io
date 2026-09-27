@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+{% include base_path %}
+{% assign author = site.author %}
+
+<div id="main" role="main" class="home">
+  <article class="page" itemscope itemtype="http://schema.org/Person">
+    <header class="hero">
+      <img class="hero__photo" src="{{ author.avatar | prepend: '/images/' | prepend: base_path }}" alt="{{ author.name }}" itemprop="image">
+      <div class="hero__text">
+        <h1 class="hero__name" itemprop="name">{{ author.name }}</h1>
+        <nav class="hero__links" aria-label="Profiles">
+          <a class="hero__btn hero__btn--primary" href="{{ base_path }}{{ page.cv }}"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> CV</a>
+          {% if author.googlescholar %}<a class="hero__btn" href="{{ author.googlescholar }}"><i class="ai ai-google-scholar" aria-hidden="true"></i> Google Scholar</a>{% endif %}
+          {% if author.github %}<a class="hero__btn" href="https://github.com/{{ author.github }}"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>{% endif %}
+          {% if author.linkedin %}<a class="hero__btn" href="https://www.linkedin.com/in/{{ author.linkedin }}/"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>{% endif %}
+          {% if author.email %}<a class="hero__btn" href="mailto:{{ author.email }}"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>{% endif %}
+        </nav>
+      </div>
+    </header>
+
+    <section class="page__content" itemprop="text">
+      {{ content }}
+    </section>
+  </article>
+</div>

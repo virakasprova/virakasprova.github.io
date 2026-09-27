@@ -1,0 +1,553 @@
+/* ==========================================================================
+   SITE CUSTOMIZATIONS
+   Typography, spacing, home page, publications, news.
+   Colors come from the CSS variables in theme/_default.scss and theme/_dark.scss.
+   ========================================================================== */
+
+$measure: 68ch; /* ~70 characters per line for body text */
+
+/*
+   Typography and rhythm
+   ========================================================================== */
+
+body {
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.page__title {
+  font-size: $type-size-2;
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 0.6em;
+}
+
+.page__content {
+  h2 {
+    margin-top: 2.5em;
+    margin-bottom: 0.9em;
+    padding-bottom: 0.35em;
+    font-size: 1.4em;
+    font-weight: 500;
+  }
+
+  h3 {
+    margin-top: 2em;
+  }
+
+  > p,
+  > ul,
+  > ol,
+  > blockquote {
+    max-width: $measure;
+  }
+
+  li {
+    margin-bottom: 0.35em;
+  }
+}
+
+/*
+   One centered column for masthead, content, and footer
+   ========================================================================== */
+
+$column: 52rem;
+
+/* Footer sits in normal flow at the bottom of a flex column, instead of the
+   template's absolutely positioned footer that needed 9em of body padding */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* main.min.js (bumpIt) sets an inline margin-bottom sized for the old absolute footer */
+  margin-bottom: 0 !important;
+}
+
+#main {
+  width: 100%;
+  max-width: $column;
+  margin: 2em auto 4em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+#main .page,
+#main .archive {
+  float: none;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+#main.home .page__content h2:first-of-type {
+  margin-top: 2.75em;
+}
+
+.masthead__inner-wrap {
+  max-width: $column;
+  margin: 0 auto;
+  padding: 0.35em 1em;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 3rem;
+
+  &__brand {
+    margin-right: auto;
+    font-family: $serif;
+    font-size: 1.1em;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    white-space: nowrap;
+    color: var(--global-masthead-link-color);
+
+    @include breakpoint($medium) {
+      font-size: 1.2em;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include breakpoint($medium) {
+      gap: 1.6rem;
+    }
+
+    li {
+      margin: 0;
+    }
+
+    a {
+      font-size: 0.95em;
+      color: var(--global-masthead-link-color);
+
+      &:hover,
+      &[aria-current="page"] {
+        color: var(--global-masthead-link-color-hover);
+      }
+    }
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  &__theme {
+    display: flex;
+    align-items: center;
+    padding: 0.25em;
+    font-size: 0.95em;
+    color: var(--global-masthead-link-color);
+    background: none;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--global-masthead-link-color-hover);
+    }
+  }
+}
+
+.page__footer {
+  position: static;
+  float: none;
+  margin-top: auto;
+
+  footer {
+    max-width: $column;
+    margin: 0 auto;
+    padding: 1.25em 1em;
+  }
+}
+
+.page__footer-copyright {
+  font-size: 0.75em;
+}
+
+.author__name {
+  font-family: $serif;
+  font-weight: 600;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+  margin: 1em 0 2.75em;
+
+  &__photo {
+    flex: 0 0 auto;
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    @include breakpoint($medium) {
+      width: 128px;
+      height: 128px;
+    }
+  }
+
+  &__text {
+    flex: 1 1 18rem;
+    min-width: 0;
+  }
+
+  &__name {
+    margin: 0 0 0.2em;
+    font-size: 2.3em;
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+
+    @include breakpoint($medium) {
+      font-size: 2.7em;
+    }
+  }
+
+  &__tagline {
+    max-width: 34em;
+    margin: 0 0 1em;
+    font-size: 1.05em;
+    line-height: 1.45;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    padding: 0.4em 0.85em;
+    font-size: 0.82em;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--global-text-color);
+    text-decoration: none;
+    border: 1px solid var(--global-dark-border-color);
+    border-radius: 999px;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+
+    &:hover,
+    &:focus {
+      color: var(--global-accent-color);
+      border-color: var(--global-accent-color);
+    }
+
+    &--primary {
+      color: var(--global-bg-color);
+      background-color: var(--global-accent-color);
+      border-color: var(--global-accent-color);
+
+      &:hover,
+      &:focus {
+        color: var(--global-bg-color);
+        background-color: var(--global-link-color-hover);
+        border-color: var(--global-link-color-hover);
+      }
+    }
+  }
+}
+
+.more-link {
+  margin-top: 1em;
+  font-size: 0.9em;
+}
+
+/*
+   News
+   ========================================================================== */
+
+.news {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: grid;
+    grid-template-columns: 5.5em 1fr;
+    gap: 1em;
+    margin: 0;
+    padding: 0.45em 0;
+    max-width: $measure;
+  }
+
+  &__date {
+    padding-top: 0.12em;
+    font-size: 0.85em;
+    color: var(--global-text-color-light);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+}
+
+/*
+   Publications
+   ========================================================================== */
+
+.pub-intro {
+  margin-bottom: 0.5em;
+  color: var(--global-text-color-light);
+}
+
+.pub-group {
+  margin: 2.5em 0 0.25em;
+  padding-bottom: 0.35em;
+  font-size: 1.4em;
+  font-weight: 500;
+  border-bottom: 1px solid var(--global-border-color);
+}
+
+.pub {
+  padding: 1.5em 0;
+  border-bottom: 1px solid var(--global-border-color);
+
+  a {
+    text-decoration: none;
+  }
+
+  &--has-teaser {
+    @include breakpoint($medium) {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 1.5em;
+      align-items: start;
+    }
+  }
+
+  &--compact {
+    padding: 1em 0;
+
+    &:first-child {
+      padding-top: 0.25em;
+    }
+  }
+
+  &--page {
+    padding: 0 0 0.5em;
+    border-bottom: 0;
+  }
+
+  &__teaser {
+    display: block;
+    margin-bottom: 1em;
+    padding: 6px;
+    background: #fff;
+    border: 1px solid var(--global-border-color);
+    border-radius: 6px;
+
+    @include breakpoint($medium) {
+      margin-bottom: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-height: 320px;
+      object-fit: contain;
+    }
+
+    /* On phones: a small thumbnail that hugs the figure, not a screen-wide white block */
+    @include breakpoint(max-width $medium - 1px) {
+      display: inline-block;
+      max-width: 100%;
+
+      img {
+        width: auto;
+        max-width: 100%;
+        max-height: 160px;
+      }
+    }
+  }
+
+  &__body {
+    min-width: 0;
+    max-width: $measure;
+  }
+
+  & &__title {
+    margin: 0 0 0.35em;
+    font-size: 1.12em;
+    font-weight: 600;
+    line-height: 1.3;
+    border: 0;
+
+    a {
+      color: var(--global-text-color);
+
+      &:hover {
+        color: var(--global-accent-color);
+      }
+    }
+  }
+
+  &--compact &__title,
+  .page__content &--compact &__title {
+    font-size: 1.05em;
+  }
+
+  & &__authors {
+    margin: 0 0 0.4em;
+    font-size: 0.88em;
+    line-height: 1.5;
+    color: var(--global-text-color-light);
+
+    strong {
+      color: var(--global-text-color);
+      font-weight: 600;
+    }
+  }
+
+  &__note {
+    white-space: nowrap;
+    font-size: 0.92em;
+  }
+
+  & &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4em 0.5em;
+    margin: 0 0 0.5em;
+    font-size: 0.85em;
+  }
+
+  &__venue {
+    color: var(--global-text-color-light);
+    font-style: italic;
+  }
+
+  & &__award {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--global-accent-color);
+  }
+
+  & &__summary {
+    margin: 0 0 0.6em;
+    font-size: 0.95em;
+  }
+
+  & &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25em 1.1em;
+    margin: 0;
+    font-size: 0.85em;
+    font-weight: 500;
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__bibtex-btn {
+    padding: 0;
+    font: inherit;
+    color: var(--global-link-color);
+    background: none;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.is-copied {
+      color: var(--global-text-color-light);
+      text-decoration: none;
+    }
+  }
+
+  & &__bibtex {
+    margin: 0.75em 0 0;
+    padding: 0.75em 1em;
+    font-size: 0.72em;
+    line-height: 1.5;
+    color: var(--global-code-text-color);
+    background: var(--global-code-background-color);
+    border: 1px solid var(--global-border-color);
+    border-radius: 6px;
+    white-space: pre;
+    overflow-x: auto;
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.12em 0.6em;
+  font-size: 0.85em;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: var(--global-text-color);
+  background: var(--global-thead-color);
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  /* not yet peer reviewed */
+  &--pending {
+    color: var(--global-text-color-light);
+    background: transparent;
+    border-color: var(--global-dark-border-color);
+  }
+
+  &__award {
+    font-weight: 600;
+    color: var(--global-accent-color);
+  }
+}
+
+/* Full-size figure on a publication's own page */
+.pub-figure {
+  margin: 0 0 2em;
+
+  img {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid var(--global-border-color);
+    border-radius: 6px;
+  }
+
+  figcaption {
+    margin-top: 0.5em;
+    font-size: 0.8em;
+    color: var(--global-fig-caption-color);
+  }
+}
+
+/* White-background paper figures are a little softer in dark mode */
+html[data-theme="dark"] {
+  .pub__teaser img,
+  .pub-figure img {
+    filter: brightness(0.92);
+  }
+}
+
+/* GitHub's brand color is near-black, which disappears in dark mode */
+.author__urls .fa-github,
+.page__footer .fa-github {
+  color: var(--global-text-color);
+}

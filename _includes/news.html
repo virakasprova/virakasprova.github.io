@@ -1,0 +1,9 @@
+{% include base_path %}
+<ul class="news">
+  {% for item in site.data.news limit: 8 %}
+    <li class="news__item">
+      <time class="news__date" datetime="{{ item.date | date: '%Y-%m' }}">{{ item.date | date: "%b %Y" }}</time>
+      <span class="news__text">{{ item.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span>
+    </li>
+  {% endfor %}
+</ul>
