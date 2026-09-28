@@ -450,31 +450,49 @@ body {
   & &__links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.25em 1.1em;
-    margin: 0;
-    font-size: 0.85em;
-    font-weight: 500;
-
-    a:hover {
-      text-decoration: underline;
-    }
+    gap: 0.4em;
+    margin: 0.2em 0 0;
   }
 
-  &__bibtex-btn {
-    padding: 0;
+  /* Small outlined buttons, a smaller version of the home page header buttons */
+  & &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.28em 0.75em;
     font: inherit;
-    color: var(--global-link-color);
-    background: none;
-    border: 0;
+    font-size: 0.8em;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--global-text-color);
+    text-decoration: none;
+    background: transparent;
+    border: 1px solid var(--global-dark-border-color);
+    border-radius: 999px;
     cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
 
-    &:hover {
-      text-decoration: underline;
+    i {
+      font-size: 0.95em;
+      color: var(--global-text-color-light);
+      transition: color 0.15s ease;
     }
 
-    &.is-copied {
-      color: var(--global-text-color-light);
+    &:hover,
+    &:focus-visible {
+      color: var(--global-accent-color);
+      border-color: var(--global-accent-color);
       text-decoration: none;
+
+      i {
+        color: var(--global-accent-color);
+      }
+    }
+
+    &.is-copied,
+    &.is-copied i {
+      color: var(--global-accent-color);
+      border-color: var(--global-accent-color);
     }
   }
 

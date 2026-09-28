@@ -21,11 +21,12 @@
       return;
     }
     navigator.clipboard.writeText(pre.textContent).then(function () {
+      var label = btn.querySelector(".pub__btn-label") || btn;
       btn.classList.add("is-copied");
-      btn.textContent = "Copied";
+      label.textContent = "Copied";
       setTimeout(function () {
         btn.classList.remove("is-copied");
-        btn.textContent = "BibTeX";
+        label.textContent = "BibTeX";
       }, 1800);
     }, function () {
       reveal(pre);

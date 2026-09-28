@@ -42,11 +42,12 @@
     {% endif %}
 
     <p class="pub__links">
-      {% if pub.paper %}<a href="{% if pub.paper contains '://' %}{{ pub.paper }}{% else %}{{ base_path }}{{ pub.paper }}{% endif %}">Paper</a>{% endif %}
-      {% if pub.code %}<a href="{{ pub.code }}">Code</a>{% endif %}
-      {% if pub.website %}<a href="{{ pub.website }}">{{ pub.website_label | default: "Website" }}</a>{% endif %}
+      {% if pub.paper %}<a class="pub__btn" href="{% if pub.paper contains '://' %}{{ pub.paper }}{% else %}{{ base_path }}{{ pub.paper }}{% endif %}"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Paper</a>{% endif %}
+      {% if pub.pdf %}<a class="pub__btn" href="{% if pub.pdf contains '://' %}{{ pub.pdf }}{% else %}{{ base_path }}{{ pub.pdf }}{% endif %}"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> PDF</a>{% endif %}
+      {% if pub.code %}<a class="pub__btn" href="{{ pub.code }}"><i class="fab fa-github" aria-hidden="true"></i> Code</a>{% endif %}
+      {% if pub.website %}<a class="pub__btn" href="{{ pub.website }}"><i class="{% if pub.website contains 'github.com' %}fab fa-github{% else %}fa-solid fa-globe{% endif %}" aria-hidden="true"></i> {{ pub.website_label | default: "Website" }}</a>{% endif %}
       {% if pub.bibtex and style != "compact" %}
-        <button type="button" class="pub__bibtex-btn" data-bibtex="{{ bib_id }}" aria-label="Copy BibTeX for {{ pub.title | escape }}">BibTeX</button>
+        <button type="button" class="pub__btn pub__bibtex-btn" data-bibtex="{{ bib_id }}" aria-label="Copy BibTeX for {{ pub.title | escape }}"><i class="fa-solid fa-quote-right" aria-hidden="true"></i> <span class="pub__btn-label">BibTeX</span></button>
       {% endif %}
     </p>
 

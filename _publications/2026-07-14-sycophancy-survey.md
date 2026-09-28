@@ -15,6 +15,7 @@ venue: "Preprint, under review at ACM Computing Surveys"
 venue_short: "ACM CSUR"
 excerpt: "Sycophancy is a family of compliance behaviors whose form depends on the interaction's structure; a survey of 126 papers across single-turn, multi-turn, multi-agent, and tool-use settings."
 paper: "https://zenodo.org/records/21347167"
+pdf: "/files/Sycophancy_Survey_Final.pdf"
 website: "https://github.com/virakasprova/LLM-Sycophancy-Survey"
 website_label: "GitHub"
 header:
