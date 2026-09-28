@@ -17,7 +17,6 @@ excerpt: "Sycophancy is a family of compliance behaviors whose form depends on t
 paper: "https://zenodo.org/records/21347167"
 pdf: "/files/Sycophancy_Survey_Final.pdf"
 website: "https://github.com/virakasprova/LLM-Sycophancy-Survey"
-website_label: "GitHub"
 header:
   teaser: "teasers/survey-topologies.png"
 teaser_alt: "Factual capitulation across four topologies: single-turn, multi-turn, multi-agent, and tool-use."
